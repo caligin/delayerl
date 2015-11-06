@@ -14,7 +14,7 @@
 start(_StartType, _StartArgs) ->
     register(delayerl_application, self()),
     Protocol = application:get_env(delayerl, protocol, https),
-    Port = application:get_env(delayerl, port, 8080),
+    Port = application:get_env(delayerl, port, 8090),
     Acceptors = application:get_env(delayerl, acceptors, 100),
 
     Dispatcher = cowboy_router:compile([
