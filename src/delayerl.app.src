@@ -1,0 +1,22 @@
+{application, delayerl, [
+    {description, "delayerl"},
+    {vsn, "1.0.0"},
+    {registered, [
+        delayerl_application
+    ]},
+    {applications, [
+        kernel,
+        stdlib,
+        crypto,
+        public_key,
+        ssl,
+        cowboy,
+        inets
+    ]},
+    {mod, { delayerl_application, []}},
+    {modules, [
+        handler,
+        delayerl_application
+    ]},
+    {env, []}
+ ]}.

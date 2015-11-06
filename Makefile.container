@@ -1,0 +1,14 @@
+.PHONY: all build
+
+all: build
+
+/delayerl-build/Makefile:
+	cp -r /delayerl-src /delayerl-build
+
+build: /delayerl-build/Makefile
+	cd /delayerl-build && \
+	$(MAKE) distclean && \
+	$(MAKE) all && \
+	$(MAKE) tarball; \
+	TARBALL_NAME=$$(find _rel/ -name 'delayerl*.tar.gz'); \
+	cp $$TARBALL_NAME /delayerl-src
