@@ -1,15 +1,13 @@
 PROJECT = delayerl
 
 DEPS = cowboy
-dep_cowboy = git git://github.com/extend/cowboy.git 1.0.0
+dep_cowboy_commit = 1.0.4
 
 CT_OPTS += -cover ./test/cover.spec
 
 include erlang.mk
 
 
-run: rel
-	_rel/delayerl_node/bin/delayerl_node console
 tarball: rel
 	GIT_COMMIT=$$(git log --pretty=format:'%H' -n 1); \
 	IS_SNAPSHOT=$$(git status --porcelain | grep -q '' && echo "-SNAPSHOT" || echo ""); \
